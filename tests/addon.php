@@ -45,7 +45,7 @@ namespace {
 
     $addon = new PluginsAddon;
     check('the id is the plugin id', $addon->id() === json_decode(file_get_contents(__DIR__.'/../plugin.json'), true)['id']);
-    check('it has a name and a description', $addon->name() === 'Simplify Plugins' && $addon->description() === 'simplify-plugins::plugins.addon_description');
+    check('it has a name and a description', $addon->name() === 'Plugins' && $addon->description() === 'simplify-plugins::plugins.addon_description');
     check('the icon is a Tabler icon', str_starts_with($addon->icon(), 'tabler-'));
 
     finish('Simplify add-on');
