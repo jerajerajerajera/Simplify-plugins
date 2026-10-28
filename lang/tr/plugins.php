@@ -28,4 +28,15 @@ return [
     'refresh' => 'Yenile',
     'up_to_date' => 'Liste beş dakikadan kısa süre önce Hub\'dan okundu.',
     'open_hub' => 'Hub\'ı aç',
+    'install' => [
+        'button' => 'Kur',
+        'heading' => ':name kurulsun mu?',
+        'confirm' => 'Pelican Hub\'dan indirilir (yapan: :name) ve arka planda kurulur. Bittiğinde bildirim alırsınız. Kurulum kendi sorumluluğunuzdadır.',
+        'needs_yarn' => 'Temalar kurulurken Node.js 22 ve yarn ile derlenir, ve bu panelde yarn yok. Panel sunucusunda şunu çalıştırın: corepack enable',
+        'started' => 'Kurulum başladı',
+        'started_body' => 'Bittiğinde bildirim alırsınız. Ardından paneli yeniden yükleyin.',
+        'failed' => 'Kurulum başarısız',
+        'not_on_hub' => 'Bu eklentinin Pelican Hub\'da bu panel için bir indirmesi yok.',
+        'no_checksum' => 'Pelican Hub bu indirme için geçerli bir sağlama toplamı vermedi, bu yüzden kurulmadı.',
+    ],
 ];

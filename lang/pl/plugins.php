@@ -28,4 +28,15 @@ return [
     'refresh' => 'Odśwież',
     'up_to_date' => 'Lista została pobrana z Hub mniej niż pięć minut temu.',
     'open_hub' => 'Otwórz Hub',
+    'install' => [
+        'button' => 'Zainstaluj',
+        'heading' => 'Zainstalować :name?',
+        'confirm' => 'Zostanie pobrane z Pelican Hub (autor: :name) i zainstalowane w tle. Dostaniesz powiadomienie po zakończeniu. Instalujesz na własne ryzyko.',
+        'needs_yarn' => 'Motywy są budowane podczas instalacji przy użyciu Node.js 22 i yarn, a yarn nie jest dostępny na tym panelu. Na serwerze panelu uruchom: corepack enable',
+        'started' => 'Rozpoczęto instalację',
+        'started_body' => 'Dostaniesz powiadomienie po zakończeniu. Potem odśwież panel.',
+        'failed' => 'Instalacja nie powiodła się',
+        'not_on_hub' => 'Ta wtyczka nie ma w Pelican Hub pliku do pobrania dla tego panelu.',
+        'no_checksum' => 'Pelican Hub nie podał prawidłowej sumy kontrolnej dla tego pliku, więc nie został zainstalowany.',
+    ],
 ];

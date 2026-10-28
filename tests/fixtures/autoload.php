@@ -11,6 +11,13 @@ spl_autoload_register(function (string $class): void {
     }
 });
 
+if (! function_exists('__')) {
+    function __($key = null, $replace = [], $locale = null)
+    {
+        return $key;
+    }
+}
+
 $failures = [];
 
 function check(string $what, bool $ok): void

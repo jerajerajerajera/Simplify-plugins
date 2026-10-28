@@ -28,4 +28,15 @@ return [
     'refresh' => 'Vernieuwen',
     'up_to_date' => 'De lijst is minder dan vijf minuten geleden van de Hub gelezen.',
     'open_hub' => 'Open de Hub',
+    'install' => [
+        'button' => 'Installeren',
+        'heading' => ':name installeren?',
+        'confirm' => 'Het wordt gedownload van de Pelican Hub, gemaakt door :name, en op de achtergrond geïnstalleerd. Je krijgt een melding als het klaar is. Installeren is op eigen risico.',
+        'needs_yarn' => 'Thema\'s worden bij het installeren gebouwd met Node.js 22 en yarn, en yarn is niet beschikbaar op dit paneel. Voer op de paneelserver uit: corepack enable',
+        'started' => 'Installatie gestart',
+        'started_body' => 'Je krijgt een melding als het klaar is. Herlaad daarna het paneel.',
+        'failed' => 'Installatie mislukt',
+        'not_on_hub' => 'Deze plugin heeft op de Pelican Hub geen download voor dit paneel.',
+        'no_checksum' => 'De Pelican Hub gaf geen geldige checksum voor deze download, dus hij is niet geïnstalleerd.',
+    ],
 ];

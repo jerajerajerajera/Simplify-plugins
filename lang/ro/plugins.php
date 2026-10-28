@@ -28,4 +28,15 @@ return [
     'refresh' => 'Reîmprospătează',
     'up_to_date' => 'Lista a fost citită de pe Hub acum mai puțin de cinci minute.',
     'open_hub' => 'Deschide Hub',
+    'install' => [
+        'button' => 'Instalează',
+        'heading' => 'Instalezi :name?',
+        'confirm' => 'Este descărcat de pe Pelican Hub, creat de :name, și instalat în fundal. Primești o notificare când e gata. Instalezi pe propriul risc.',
+        'needs_yarn' => 'Temele sunt compilate cu Node.js 22 și yarn la instalare, iar yarn nu este disponibil pe acest panou. Pe serverul panoului, rulează: corepack enable',
+        'started' => 'Instalarea a început',
+        'started_body' => 'Primești o notificare când e gata. Apoi reîncarcă panoul.',
+        'failed' => 'Instalarea a eșuat',
+        'not_on_hub' => 'Acest plugin nu are descărcare pe Pelican Hub pentru acest panou.',
+        'no_checksum' => 'Pelican Hub nu a oferit o sumă de control validă pentru această descărcare, așa că nu a fost instalat.',
+    ],
 ];

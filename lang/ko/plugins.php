@@ -28,4 +28,15 @@ return [
     'refresh' => '새로고침',
     'up_to_date' => '목록을 Hub에서 읽은 지 5분이 지나지 않았습니다.',
     'open_hub' => 'Hub 열기',
+    'install' => [
+        'button' => '설치',
+        'heading' => ':name 을(를) 설치할까요?',
+        'confirm' => 'Pelican Hub에서 다운로드하고(제작: :name) 백그라운드에서 설치합니다. 완료되면 알림을 받습니다. 설치는 본인 책임입니다.',
+        'needs_yarn' => '테마는 설치할 때 Node.js 22와 yarn으로 빌드되는데, 이 패널에는 yarn이 없습니다. 패널 서버에서 다음을 실행하세요: corepack enable',
+        'started' => '설치를 시작했습니다',
+        'started_body' => '완료되면 알림을 받습니다. 그 후 패널을 새로고침하세요.',
+        'failed' => '설치 실패',
+        'not_on_hub' => '이 플러그인은 이 패널용 Pelican Hub 다운로드가 없습니다.',
+        'no_checksum' => 'Pelican Hub가 이 다운로드의 유효한 체크섬을 주지 않아 설치하지 않았습니다.',
+    ],
 ];

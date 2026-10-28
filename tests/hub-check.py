@@ -71,7 +71,9 @@ if manifest.get('update_url') != expected:
     failures.append(f'plugin.json update_url must be {expected}')
 
 # Updates come from the Hub only (the Hub's review of 0.6.0): no update files, no download_url, no code that reads
-# release files from GitHub.
+# release files from GitHub. The one exception in this plugin: HubInstaller reads download_url from the Hub's own
+# update.json and refuses any address that is not on hub.pelican.dev (tests/installer.php).
+HUB_INSTALLER = 'src/Services/HubInstaller.php'
 for name in listed_all:
     if re.fullmatch(r'update[\w-]*\.json', Path(name).name):
         failures.append(f'{name}: update files are not allowed, updates come from the Hub')
@@ -80,7 +82,7 @@ for name in listed_all:
         continue
     text = (root / name).read_text('utf-8', 'replace') if (root / name).is_file() else ''
     for pattern in ['raw.githubusercontent.com', 'api.github.com', 'download_url']:
-        if pattern in text:
+        if pattern in text and not (pattern == 'download_url' and name == HUB_INSTALLER):
             failures.append(f'{name}: mentions {pattern}; the plugin must not fetch code or updates itself')
 if 'download_url' in manifest:
     failures.append('plugin.json has download_url; updates come from the Hub')

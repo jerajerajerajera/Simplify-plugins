@@ -28,4 +28,15 @@ return [
     'refresh' => 'Làm mới',
     'up_to_date' => 'Danh sách đã được đọc từ Hub chưa đầy năm phút trước.',
     'open_hub' => 'Mở Hub',
+    'install' => [
+        'button' => 'Cài đặt',
+        'heading' => 'Cài đặt :name?',
+        'confirm' => 'Nó được tải từ Pelican Hub, do :name tạo, và cài đặt ở chế độ nền. Bạn sẽ nhận thông báo khi xong. Bạn tự chịu rủi ro khi cài đặt.',
+        'needs_yarn' => 'Giao diện được build bằng Node.js 22 và yarn khi cài đặt, và panel này không có yarn. Trên máy chủ panel, hãy chạy: corepack enable',
+        'started' => 'Đã bắt đầu cài đặt',
+        'started_body' => 'Bạn sẽ nhận thông báo khi xong. Sau đó hãy tải lại panel.',
+        'failed' => 'Cài đặt thất bại',
+        'not_on_hub' => 'Plugin này không có bản tải trên Pelican Hub cho panel này.',
+        'no_checksum' => 'Pelican Hub không cung cấp checksum hợp lệ cho bản tải này nên nó không được cài đặt.',
+    ],
 ];
