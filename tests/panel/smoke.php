@@ -10,7 +10,11 @@ use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithAuthentication;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithSession;
 use Illuminate\Foundation\Testing\Concerns\MakesHttpRequests;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Testing\TestResponse;
+use Simplify\Plugins\Filament\Admin\Pages\BrowseHub;
+use Simplify\Plugins\Services\HubApi;
+use Simplify\Plugins\Services\HubCatalog;
 
 define('LARAVEL_START', microtime(true));
 require getcwd().'/vendor/autoload.php';
@@ -54,6 +58,43 @@ step('the admin area renders with the plugin enabled', function () use ($admin) 
     if ($response->getStatusCode() !== 200) {
         throw new RuntimeException('HTTP '.$response->getStatusCode()
             .($response->exception ? ': '.$response->exception->getMessage() : ''));
+    }
+});
+
+// A fake Hub: one theme with a screenshot and one plugin.
+HubApi::$transport = function (string $path): array {
+    $theme = ['slug' => 'smoke-theme', 'title' => 'Smoke Theme', 'type' => 'theme', 'author_name' => 'Smoke Maker', 'description' => 'A theme.', 'pricing_type' => 'free'];
+    if ($path === '/api/plugins/smoke-theme') {
+        return [...$theme, 'screenshots' => ['https://example.com/shot.png'], 'license' => 'MIT'];
+    }
+
+    return ['last_page' => 1, 'data' => [$theme, ['slug' => 'smoke-plugin', 'title' => 'Smoke Plugin', 'type' => 'plugin', 'author_name' => 'Other Maker', 'pricing_type' => 'free']]];
+};
+HubCatalog::forget();
+Cache::forget('simplify-plugins.catalog.smoke-theme');
+
+step('Browse Hub renders', function () use ($admin) {
+    $url = BrowseHub::getUrl(panel: 'admin');
+    $response = http($admin, $url);
+    if ($response->getStatusCode() !== 200) {
+        throw new RuntimeException('HTTP '.$response->getStatusCode().' at '.$url.($response->exception ? ': '.$response->exception->getMessage() : ''));
+    }
+});
+
+step('Browse Hub lists the Hub with its makers and details', function () use ($admin) {
+    Filament\Facades\Filament::setCurrentPanel(Filament\Facades\Filament::getPanel('admin'));
+    Livewire\Livewire::actingAs($admin)->test(BrowseHub::class)
+        ->call('load')
+        ->assertSee('Smoke Theme')->assertSee('Made by Smoke Maker')->assertSee('https://example.com/shot.png')->assertDontSee('Smoke Plugin')
+        ->set('type', 'plugin')->assertSee('Smoke Plugin')
+        ->set('type', 'theme')->set('search', 'nothing like this')->assertSee('Nothing found')
+        ->set('search', '')->mountAction('view', ['slug' => 'smoke-theme'])->assertSee('MIT');
+});
+
+step('Pelican\'s Plugins page has the Browse Hub button', function () use ($admin) {
+    $response = http($admin, '/admin/plugins');
+    if ($response->getStatusCode() !== 200 || ! str_contains($response->getContent(), '/admin/browse-hub')) {
+        throw new RuntimeException('HTTP '.$response->getStatusCode().', button '.(str_contains((string) $response->getContent(), 'browse-hub') ? 'found' : 'missing'));
     }
 });
 
