@@ -108,7 +108,9 @@ step('Browse Hub lists the Hub with its makers and details', function () use ($a
     must(! str_contains($html, 'Smoke Plugin'), 'a plugin shows on the Themes tab');
     must(str_contains($page->set('type', 'plugin')->html(), 'Smoke Plugin'), 'the Plugins tab does not show the plugin');
     must(str_contains($page->set('type', 'theme')->set('search', 'nothing like this')->html(), 'Nothing found'), 'an empty search does not say so');
-    must(str_contains($page->set('search', '')->mountAction('view', ['slug' => 'smoke-theme'])->html(), 'MIT'), 'the details do not show the license');
+    $page->set('search', '')->mountAction('view', ['slug' => 'smoke-theme']);
+    $details = view('simplify-plugins::details', ['item' => HubCatalog::details('smoke-theme')])->render();
+    must(str_contains($details, 'MIT') && str_contains($details, 'https://example.com/shot.png'), 'the details do not show the license and screenshots');
 });
 
 step('installing refuses a download that is not on the Hub', function () use ($admin) {
