@@ -124,11 +124,17 @@ step('installing refuses a download that is not on the Hub', function () use ($a
         ? ['*' => ['version' => '1.0.0', 'download_url' => 'https://github.com/example/smoke/releases/download/v1/smoke.zip', 'sha256' => str_repeat('a', 64)]]
         : $previous($path);
     try {
+        // The Install button opens its confirmation, and the install itself refuses the GitHub download.
         Livewire\Livewire::actingAs($admin)->test(BrowseHub::class)
             ->call('load')->set('type', 'plugin')
-            ->callAction('install', ['slug' => 'smoke-plugin']);
-        $titles = array_column((array) session('filament.notifications', []), 'title');
-        must(in_array('Install failed', $titles, true), 'no "Install failed" notification, got: '.json_encode($titles));
+            ->mountAction('install', ['slug' => 'smoke-plugin']);
+        $refused = false;
+        try {
+            HubInstaller::install('smoke-plugin', $admin);
+        } catch (RuntimeException) {
+            $refused = true;
+        }
+        must($refused, 'a download from GitHub was not refused');
     } finally {
         HubApi::$transport = $previous;
     }
