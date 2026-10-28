@@ -24,6 +24,12 @@ require getcwd().'/vendor/autoload.php';
 $app = require getcwd().'/bootstrap/app.php';
 $app->make(Kernel::class)->bootstrap();
 
+// Laravel's console handler would print an uncaught error and still exit 0, which CI reads as a pass.
+set_exception_handler(function (Throwable $e) {
+    echo 'FAIL uncaught '.get_class($e).': '.substr($e->getMessage(), 0, 400).' ('.basename($e->getFile()).':'.$e->getLine().")\n";
+    exit(1);
+});
+
 $failed = false;
 
 function step(string $what, callable $run): void
