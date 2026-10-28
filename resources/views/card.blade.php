@@ -26,18 +26,23 @@
             {{ __('simplify-plugins::plugins.downloads', ['count' => number_format($item['downloads'])]) }}
         </span>
         <div class="sp-hub-actions">
+            @if (! $item['installed'] && $this->canInstall())
+                {{ ($this->installAction)(['slug' => $item['slug']]) }}
+            @endif
             {{ ($this->viewAction)(['slug' => $item['slug']]) }}
-            <x-filament::button
-                tag="a"
-                size="sm"
-                color="gray"
-                icon="tabler-external-link"
-                :href="$item['url']"
-                target="_blank"
-                rel="noopener"
-            >
-                {{ __('simplify-plugins::plugins.view_on_hub') }}
-            </x-filament::button>
+            @if ($item['installed'] || ! $this->canInstall())
+                <x-filament::button
+                    tag="a"
+                    size="sm"
+                    color="gray"
+                    icon="tabler-external-link"
+                    :href="$item['url']"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    {{ __('simplify-plugins::plugins.view_on_hub') }}
+                </x-filament::button>
+            @endif
         </div>
     </div>
 </article>

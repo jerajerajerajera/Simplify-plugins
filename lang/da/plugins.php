@@ -28,4 +28,15 @@ return [
     'refresh' => 'Opdater',
     'up_to_date' => 'Listen blev hentet fra Hub for under fem minutter siden.',
     'open_hub' => 'Åbn Hub',
+    'install' => [
+        'button' => 'Installer',
+        'heading' => 'Installer :name?',
+        'confirm' => 'Det hentes fra Pelican Hub, lavet af :name, og installeres i baggrunden. Du får en besked, når det er færdigt. Du installerer på eget ansvar.',
+        'needs_yarn' => 'Temaer bygges med Node.js 22 og yarn under installationen, og yarn findes ikke på dette panel. Kør på panelserveren: corepack enable',
+        'started' => 'Installation startet',
+        'started_body' => 'Du får en besked, når det er færdigt. Genindlæs panelet bagefter.',
+        'failed' => 'Installation mislykkedes',
+        'not_on_hub' => 'Dette plugin har ingen download på Pelican Hub til dette panel.',
+        'no_checksum' => 'Pelican Hub gav ingen gyldig checksum for denne download, så den blev ikke installeret.',
+    ],
 ];

@@ -28,4 +28,15 @@ return [
     'refresh' => 'Actualiser',
     'up_to_date' => 'La liste a été lue sur le Hub il y a moins de cinq minutes.',
     'open_hub' => 'Ouvrir le Hub',
+    'install' => [
+        'button' => 'Installer',
+        'heading' => 'Installer :name ?',
+        'confirm' => 'Il est téléchargé depuis le Pelican Hub, créé par :name, et installé en arrière-plan. Vous recevez une notification une fois terminé. L\'installation se fait à vos propres risques.',
+        'needs_yarn' => 'Les thèmes sont compilés avec Node.js 22 et yarn lors de l\'installation, et yarn n\'est pas disponible sur ce panel. Sur le serveur du panel, exécutez : corepack enable',
+        'started' => 'Installation lancée',
+        'started_body' => 'Vous recevez une notification une fois terminé. Rechargez ensuite le panel.',
+        'failed' => 'Échec de l\'installation',
+        'not_on_hub' => 'Ce plugin n\'a pas de téléchargement sur le Pelican Hub pour ce panel.',
+        'no_checksum' => 'Le Pelican Hub n\'a pas fourni de somme de contrôle valide pour ce téléchargement, il n\'a donc pas été installé.',
+    ],
 ];

@@ -28,4 +28,15 @@ return [
     'refresh' => 'Frissítés',
     'up_to_date' => 'A listát kevesebb mint öt perce olvastuk be a Hubról.',
     'open_hub' => 'Hub megnyitása',
+    'install' => [
+        'button' => 'Telepítés',
+        'heading' => ':name telepítése?',
+        'confirm' => 'Letöltjük a Pelican Hubról (készítette: :name), és a háttérben telepítjük. Értesítést kapsz, ha kész. A telepítés saját felelősségre történik.',
+        'needs_yarn' => 'A témák telepítéskor Node.js 22-vel és yarnnal épülnek, és ezen a panelen nincs yarn. Futtasd a panel szerverén: corepack enable',
+        'started' => 'Telepítés elindult',
+        'started_body' => 'Értesítést kapsz, ha kész. Utána töltsd újra a panelt.',
+        'failed' => 'A telepítés sikertelen',
+        'not_on_hub' => 'Ennek a bővítménynek nincs letöltése a Pelican Hubon ehhez a panelhez.',
+        'no_checksum' => 'A Pelican Hub nem adott érvényes ellenőrzőösszeget ehhez a letöltéshez, ezért nem települt.',
+    ],
 ];

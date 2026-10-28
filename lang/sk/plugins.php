@@ -28,4 +28,15 @@ return [
     'refresh' => 'Obnoviť',
     'up_to_date' => 'Zoznam bol načítaný z Hubu pred menej ako piatimi minútami.',
     'open_hub' => 'Otvoriť Hub',
+    'install' => [
+        'button' => 'Inštalovať',
+        'heading' => 'Inštalovať :name?',
+        'confirm' => 'Stiahne sa z Pelican Hub (autor :name) a nainštaluje na pozadí. Keď bude hotovo, dostanete upozornenie. Inštalujete na vlastné riziko.',
+        'needs_yarn' => 'Motívy sa pri inštalácii zostavujú pomocou Node.js 22 a yarn a yarn na tomto paneli nie je k dispozícii. Na serveri panela spustite: corepack enable',
+        'started' => 'Inštalácia sa začala',
+        'started_body' => 'Keď bude hotovo, dostanete upozornenie. Potom panel znova načítajte.',
+        'failed' => 'Inštalácia zlyhala',
+        'not_on_hub' => 'Tento plugin nemá na Pelican Hub stiahnutie pre tento panel.',
+        'no_checksum' => 'Pelican Hub neposkytol platný kontrolný súčet pre toto stiahnutie, preto sa nenainštaloval.',
+    ],
 ];

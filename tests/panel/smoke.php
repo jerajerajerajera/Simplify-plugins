@@ -5,6 +5,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Plugin;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\Console\Kernel;
@@ -16,6 +17,7 @@ use Illuminate\Testing\TestResponse;
 use Simplify\Plugins\Filament\Admin\Pages\BrowseHub;
 use Simplify\Plugins\Services\HubApi;
 use Simplify\Plugins\Services\HubCatalog;
+use Simplify\Plugins\Services\HubInstaller;
 
 define('LARAVEL_START', microtime(true));
 require getcwd().'/vendor/autoload.php';
@@ -109,6 +111,37 @@ step('Browse Hub lists the Hub with its makers and details', function () use ($a
     $page->set('search', '')->mountAction('view', ['slug' => 'smoke-theme']);
     $details = view('simplify-plugins::details', ['item' => HubCatalog::details('smoke-theme')])->render();
     must(str_contains($details, 'MIT') && str_contains($details, 'https://example.com/shot.png'), 'the details do not show the license and screenshots');
+});
+
+step('installing refuses a download that is not on the Hub', function () use ($admin) {
+    if (! HubInstaller::supported()) {
+        echo "  (this Pelican has no checksum check: Browse Hub only links to the Hub)\n";
+
+        return;
+    }
+    $previous = HubApi::$transport;
+    HubApi::$transport = fn (string $path) => str_ends_with($path, '/update.json')
+        ? ['*' => ['version' => '1.0.0', 'download_url' => 'https://github.com/example/smoke/releases/download/v1/smoke.zip', 'sha256' => str_repeat('a', 64)]]
+        : $previous($path);
+    try {
+        // The Install button opens its confirmation, and the install itself refuses the GitHub download.
+        Livewire\Livewire::actingAs($admin)->test(BrowseHub::class)
+            ->call('load')->set('type', 'plugin')
+            ->mountAction('install', ['slug' => 'smoke-plugin']);
+        $refused = false;
+        try {
+            HubInstaller::install('smoke-plugin', $admin);
+        } catch (RuntimeException) {
+            $refused = true;
+        }
+        must($refused, 'a download from GitHub was not refused');
+    } finally {
+        HubApi::$transport = $previous;
+    }
+    Plugin::refreshRows();
+    if (Plugin::query()->whereKey('smoke-plugin')->exists()) {
+        throw new RuntimeException('a plugin from outside the Hub was installed');
+    }
 });
 
 step('Pelican\'s Plugins page has the Browse Hub button', function () use ($admin) {
