@@ -2,7 +2,7 @@
   "id": "simplify-plugins",
   "name": "Simplify Plugins",
   "author": "jera",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Browse the themes, plugins and languages on the Pelican Hub, with their makers up front, and install them from the Hub.",
   "category": "plugin",
   "namespace": "Simplify\\Plugins",
