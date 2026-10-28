@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Ta wtyczka nie ma w Pelican Hub pliku do pobrania dla tego panelu.',
         'no_checksum' => 'Pelican Hub nie podał prawidłowej sumy kontrolnej dla tego pliku, więc nie został zainstalowany.',
     ],
+    'addon_description' => 'Przeglądaj motywy, wtyczki i języki w Pelican Hub i instaluj je stamtąd.',
 ];

@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Tällä lisäosalla ei ole Pelican Hubissa latausta tälle paneelille.',
         'no_checksum' => 'Pelican Hub ei antanut kelvollista tarkistussummaa tälle lataukselle, joten sitä ei asennettu.',
     ],
+    'addon_description' => 'Selaa Pelican Hubin teemoja, lisäosia ja kieliä ja asenna ne sieltä.',
 ];

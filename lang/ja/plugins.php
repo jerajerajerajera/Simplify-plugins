@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'このプラグインには、このパネル向けの Pelican Hub のダウンロードがありません。',
         'no_checksum' => 'Pelican Hub がこのダウンロードの有効なチェックサムを返さなかったため、インストールしませんでした。',
     ],
+    'addon_description' => 'Pelican Hub のテーマ、プラグイン、言語を見て、そこからインストールします。',
 ];

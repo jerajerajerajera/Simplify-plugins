@@ -39,4 +39,5 @@ return [
         'not_on_hub' => '此外掛在 Pelican Hub 上沒有適用於此面板的下載。',
         'no_checksum' => 'Pelican Hub 沒有為此下載提供有效的檢查碼，因此未安裝。',
     ],
+    'addon_description' => '瀏覽 Pelican Hub 上的主題、外掛和語言，並從那裡安裝。',
 ];

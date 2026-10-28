@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Plugin này không có bản tải trên Pelican Hub cho panel này.',
         'no_checksum' => 'Pelican Hub không cung cấp checksum hợp lệ cho bản tải này nên nó không được cài đặt.',
     ],
+    'addon_description' => 'Duyệt giao diện, plugin và ngôn ngữ trên Pelican Hub và cài đặt từ đó.',
 ];

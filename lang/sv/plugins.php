@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Det här pluginet har ingen nedladdning på Pelican Hub för den här panelen.',
         'no_checksum' => 'Pelican Hub gav ingen giltig kontrollsumma för den här nedladdningen, så den installerades inte.',
     ],
+    'addon_description' => 'Bläddra bland teman, plugins och språk på Pelican Hub och installera dem därifrån.',
 ];

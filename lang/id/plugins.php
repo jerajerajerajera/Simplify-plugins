@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Plugin ini tidak punya unduhan di Pelican Hub untuk panel ini.',
         'no_checksum' => 'Pelican Hub tidak memberi checksum yang valid untuk unduhan ini, jadi tidak dipasang.',
     ],
+    'addon_description' => 'Jelajahi tema, plugin, dan bahasa di Pelican Hub dan pasang dari sana.',
 ];
