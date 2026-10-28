@@ -20,7 +20,7 @@ final class PluginsAddon extends Addon
 
     public function name(): string
     {
-        return 'Simplify Plugins';
+        return 'Plugins';
     }
 
     public function description(): string
