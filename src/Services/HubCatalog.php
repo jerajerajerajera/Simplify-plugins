@@ -85,15 +85,17 @@ final class HubCatalog
             $last = min(self::MAX_PAGES, (int) ($body['last_page'] ?? 1));
         } while (++$page <= $last);
 
-        // Themes are chosen by how they look, so their screenshots are read up front: one request per theme.
+        // Themes are chosen by how they look, so their screenshots are read up front, all at once. A theme whose
+        // details fail still shows, just without screenshots.
+        $paths = [];
         foreach ($rows as $index => $row) {
             if (($row['type'] ?? '') === 'theme' && self::validSlug((string) ($row['slug'] ?? ''))) {
-                try {
-                    $rows[$index] = [...$row, ...array_filter(HubApi::get('/api/plugins/'.$row['slug']), fn ($value) => $value !== null)];
-                } catch (Throwable) {
-                    // The list still shows the theme, just without screenshots.
-                }
+                $paths[$index] = '/api/plugins/'.$row['slug'];
             }
+        }
+        $details = HubApi::many(array_values($paths));
+        foreach ($paths as $index => $path) {
+            $rows[$index] = [...$rows[$index], ...array_filter($details[$path] ?? [], fn ($value) => $value !== null)];
         }
 
         return $rows;
