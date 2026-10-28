@@ -124,8 +124,9 @@ step('installing refuses a download that is not on the Hub', function () use ($a
     try {
         Livewire\Livewire::actingAs($admin)->test(BrowseHub::class)
             ->call('load')->set('type', 'plugin')
-            ->callAction('install', ['slug' => 'smoke-plugin'])
-            ->assertNotified('Install failed');
+            ->callAction('install', ['slug' => 'smoke-plugin']);
+        $titles = array_column((array) session('filament.notifications', []), 'title');
+        must(in_array('Install failed', $titles, true), 'no "Install failed" notification, got: '.json_encode($titles));
     } finally {
         HubApi::$transport = $previous;
     }
