@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Šis įskiepis Pelican Hub neturi atsisiuntimo šiam skydeliui.',
         'no_checksum' => 'Pelican Hub nepateikė galiojančios kontrolinės sumos šiam atsisiuntimui, todėl jis neįdiegtas.',
     ],
+    'addon_description' => 'Naršykite Pelican Hub temas, įskiepius ir kalbas ir diekite juos iš ten.',
 ];

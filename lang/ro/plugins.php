@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Acest plugin nu are descărcare pe Pelican Hub pentru acest panou.',
         'no_checksum' => 'Pelican Hub nu a oferit o sumă de control validă pentru această descărcare, așa că nu a fost instalat.',
     ],
+    'addon_description' => 'Răsfoiește temele, pluginurile și limbile de pe Pelican Hub și instalează-le de acolo.',
 ];

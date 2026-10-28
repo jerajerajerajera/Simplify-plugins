@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Deze plugin heeft op de Pelican Hub geen download voor dit paneel.',
         'no_checksum' => 'De Pelican Hub gaf geen geldige checksum voor deze download, dus hij is niet geïnstalleerd.',
     ],
+    'addon_description' => 'Bekijk de thema\'s, plugins en talen op de Pelican Hub en installeer ze vanaf daar.',
 ];

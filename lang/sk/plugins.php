@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Tento plugin nemá na Pelican Hub stiahnutie pre tento panel.',
         'no_checksum' => 'Pelican Hub neposkytol platný kontrolný súčet pre toto stiahnutie, preto sa nenainštaloval.',
     ],
+    'addon_description' => 'Prehliadajte motívy, pluginy a jazyky na Pelican Hub a inštalujte ich odtiaľ.',
 ];
