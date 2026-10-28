@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Bu eklentinin Pelican Hub\'da bu panel için bir indirmesi yok.',
         'no_checksum' => 'Pelican Hub bu indirme için geçerli bir sağlama toplamı vermedi, bu yüzden kurulmadı.',
     ],
+    'addon_description' => 'Pelican Hub\'daki temalara, eklentilere ve dillere göz atın ve onları oradan kurun.',
 ];

@@ -39,4 +39,5 @@ return [
         'not_on_hub' => '此插件在 Pelican Hub 上没有适用于此面板的下载。',
         'no_checksum' => 'Pelican Hub 没有为此下载提供有效的校验和，因此未安装。',
     ],
+    'addon_description' => '浏览 Pelican Hub 上的主题、插件和语言，并从那里安装。',
 ];

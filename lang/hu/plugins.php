@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Ennek a bővítménynek nincs letöltése a Pelican Hubon ehhez a panelhez.',
         'no_checksum' => 'A Pelican Hub nem adott érvényes ellenőrzőösszeget ehhez a letöltéshez, ezért nem települt.',
     ],
+    'addon_description' => 'Böngészd a Pelican Hub témáit, bővítményeit és nyelveit, és telepítsd őket onnan.',
 ];

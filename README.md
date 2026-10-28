@@ -16,6 +16,12 @@ It works on its own and is also an add-on for [Simplify](https://github.com/jera
 1. Install the plugin from the [Pelican Hub](https://hub.pelican.dev).
 2. In the admin area, open **Plugins → Browse Hub**.
 
+## With Simplify
+
+When [Simplify](https://github.com/jerajerajerajera/simplify) is installed too, Simplify Plugins shows up in Simplify's
+add-on list and adds a **Browse Hub** button to the dashboard for root admins. Nothing else changes; there is no hard
+dependency either way.
+
 ## What it sends where
 
 Only the Pelican Hub (`hub.pelican.dev`): the public list of plugins and themes, and the plugin files when you press

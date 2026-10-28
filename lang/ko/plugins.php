@@ -39,4 +39,5 @@ return [
         'not_on_hub' => '이 플러그인은 이 패널용 Pelican Hub 다운로드가 없습니다.',
         'no_checksum' => 'Pelican Hub가 이 다운로드의 유효한 체크섬을 주지 않아 설치하지 않았습니다.',
     ],
+    'addon_description' => 'Pelican Hub의 테마, 플러그인, 언어를 둘러보고 거기서 설치합니다.',
 ];

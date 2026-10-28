@@ -39,4 +39,5 @@ return [
         'not_on_hub' => 'Este plugin não tem transferência no Pelican Hub para este painel.',
         'no_checksum' => 'O Pelican Hub não deu uma soma de verificação válida para esta transferência, por isso não foi instalado.',
     ],
+    'addon_description' => 'Explore os temas, plugins e idiomas do Pelican Hub e instale-os a partir de lá.',
 ];
