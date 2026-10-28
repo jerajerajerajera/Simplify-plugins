@@ -28,4 +28,15 @@ return [
     'refresh' => 'Atnaujinti',
     'up_to_date' => 'Sąrašas iš Hub nuskaitytas mažiau nei prieš penkias minutes.',
     'open_hub' => 'Atidaryti Hub',
+    'install' => [
+        'button' => 'Įdiegti',
+        'heading' => 'Įdiegti :name?',
+        'confirm' => 'Jis atsisiunčiamas iš Pelican Hub (autorius :name) ir įdiegiamas fone. Kai bus baigta, gausite pranešimą. Diegiate savo rizika.',
+        'needs_yarn' => 'Temos diegiant sukuriamos su Node.js 22 ir yarn, o yarn šiame skydelyje nėra. Skydelio serveryje paleiskite: corepack enable',
+        'started' => 'Diegimas pradėtas',
+        'started_body' => 'Kai bus baigta, gausite pranešimą. Po to perkraukite skydelį.',
+        'failed' => 'Diegimas nepavyko',
+        'not_on_hub' => 'Šis įskiepis Pelican Hub neturi atsisiuntimo šiam skydeliui.',
+        'no_checksum' => 'Pelican Hub nepateikė galiojančios kontrolinės sumos šiam atsisiuntimui, todėl jis neįdiegtas.',
+    ],
 ];

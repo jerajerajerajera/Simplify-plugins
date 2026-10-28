@@ -28,4 +28,15 @@ return [
     'refresh' => 'Muat ulang',
     'up_to_date' => 'Daftar dibaca dari Hub kurang dari lima menit yang lalu.',
     'open_hub' => 'Buka Hub',
+    'install' => [
+        'button' => 'Pasang',
+        'heading' => 'Pasang :name?',
+        'confirm' => 'Diunduh dari Pelican Hub, dibuat oleh :name, dan dipasang di latar belakang. Anda akan mendapat notifikasi saat selesai. Pemasangan atas risiko Anda sendiri.',
+        'needs_yarn' => 'Tema dibangun dengan Node.js 22 dan yarn saat dipasang, dan yarn tidak tersedia di panel ini. Di server panel, jalankan: corepack enable',
+        'started' => 'Pemasangan dimulai',
+        'started_body' => 'Anda akan mendapat notifikasi saat selesai. Muat ulang panel setelahnya.',
+        'failed' => 'Pemasangan gagal',
+        'not_on_hub' => 'Plugin ini tidak punya unduhan di Pelican Hub untuk panel ini.',
+        'no_checksum' => 'Pelican Hub tidak memberi checksum yang valid untuk unduhan ini, jadi tidak dipasang.',
+    ],
 ];

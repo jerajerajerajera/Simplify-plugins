@@ -28,4 +28,15 @@ return [
     'refresh' => 'Päivitä',
     'up_to_date' => 'Lista luettiin Hubista alle viisi minuuttia sitten.',
     'open_hub' => 'Avaa Hub',
+    'install' => [
+        'button' => 'Asenna',
+        'heading' => 'Asennetaanko :name?',
+        'confirm' => 'Se ladataan Pelican Hubista (tekijä :name) ja asennetaan taustalla. Saat ilmoituksen, kun se on valmis. Asennat omalla vastuullasi.',
+        'needs_yarn' => 'Teemat käännetään asennuksen aikana Node.js 22:lla ja yarnilla, eikä yarnia ole tässä paneelissa. Suorita paneelipalvelimella: corepack enable',
+        'started' => 'Asennus aloitettu',
+        'started_body' => 'Saat ilmoituksen, kun se on valmis. Lataa paneeli sen jälkeen uudelleen.',
+        'failed' => 'Asennus epäonnistui',
+        'not_on_hub' => 'Tällä lisäosalla ei ole Pelican Hubissa latausta tälle paneelille.',
+        'no_checksum' => 'Pelican Hub ei antanut kelvollista tarkistussummaa tälle lataukselle, joten sitä ei asennettu.',
+    ],
 ];

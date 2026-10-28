@@ -28,4 +28,15 @@ return [
     'refresh' => 'Refresh',
     'up_to_date' => 'The list was read from the Hub less than five minutes ago.',
     'open_hub' => 'Open the Hub',
+    'install' => [
+        'button' => 'Install',
+        'heading' => 'Install :name?',
+        'confirm' => 'It is downloaded from the Pelican Hub, made by :name, and installed in the background. You get a notification when it is done. You install it at your own risk.',
+        'needs_yarn' => 'Themes are built with Node.js 22 and yarn while they install, and yarn is not available on this panel. On the panel server, run: corepack enable',
+        'started' => 'Install started',
+        'started_body' => 'You get a notification when it is done. Reload the panel afterwards.',
+        'failed' => 'Install failed',
+        'not_on_hub' => 'This plugin has no download on the Pelican Hub for this panel.',
+        'no_checksum' => 'The Pelican Hub gave no valid checksum for this download, so it was not installed.',
+    ],
 ];

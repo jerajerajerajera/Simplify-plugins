@@ -28,4 +28,15 @@ return [
     'refresh' => '刷新',
     'up_to_date' => '列表在五分钟内刚从 Hub 读取过。',
     'open_hub' => '打开 Hub',
+    'install' => [
+        'button' => '安装',
+        'heading' => '安装 :name？',
+        'confirm' => '将从 Pelican Hub 下载（作者 :name）并在后台安装。完成后你会收到通知。安装风险自负。',
+        'needs_yarn' => '主题在安装时需要用 Node.js 22 和 yarn 构建，而此面板上没有 yarn。请在面板服务器上运行：corepack enable',
+        'started' => '已开始安装',
+        'started_body' => '完成后你会收到通知。之后请刷新面板。',
+        'failed' => '安装失败',
+        'not_on_hub' => '此插件在 Pelican Hub 上没有适用于此面板的下载。',
+        'no_checksum' => 'Pelican Hub 没有为此下载提供有效的校验和，因此未安装。',
+    ],
 ];
