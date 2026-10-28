@@ -6,6 +6,7 @@
 declare(strict_types=1);
 
 use App\Models\Plugin;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithAuthentication;
@@ -53,7 +54,8 @@ function http(User $user, string $url): TestResponse
 }
 
 $admin = User::where('email', 'smoke-plugins@example.com')->first()
-    ?? User::factory()->create(['email' => 'smoke-plugins@example.com', 'root_admin' => true]);
+    ?? User::factory()->create(['email' => 'smoke-plugins@example.com']);
+$admin->syncRoles(Role::getRootAdmin());
 
 step('the admin area renders with the plugin enabled', function () use ($admin) {
     $response = http($admin, '/admin');
@@ -130,4 +132,5 @@ step('the translations load', function () {
     }
 });
 
+echo $failed ? "Some steps failed\n" : "All steps passed\n";
 exit($failed ? 1 : 0);
