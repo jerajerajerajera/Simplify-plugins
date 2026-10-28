@@ -45,6 +45,13 @@ function step(string $what, callable $run): void
     }
 }
 
+function must(bool $ok, string $why): void
+{
+    if (! $ok) {
+        throw new RuntimeException($why);
+    }
+}
+
 function http(User $user, string $url): TestResponse
 {
     $client = new class(app())
@@ -93,12 +100,15 @@ step('Browse Hub renders', function () use ($admin) {
 
 step('Browse Hub lists the Hub with its makers and details', function () use ($admin) {
     Filament\Facades\Filament::setCurrentPanel(Filament\Facades\Filament::getPanel('admin'));
-    Livewire\Livewire::actingAs($admin)->test(BrowseHub::class)
-        ->call('load')
-        ->assertSee('Smoke Theme')->assertSee('Made by Smoke Maker')->assertSee('https://example.com/shot.png')->assertDontSee('Smoke Plugin')
-        ->set('type', 'plugin')->assertSee('Smoke Plugin')
-        ->set('type', 'theme')->set('search', 'nothing like this')->assertSee('Nothing found')
-        ->set('search', '')->mountAction('view', ['slug' => 'smoke-theme'])->assertSee('MIT');
+    // PHPUnit's assertions need a PHPUnit run, so the page's HTML is checked by hand.
+    $page = Livewire\Livewire::actingAs($admin)->test(BrowseHub::class)->call('load');
+    $html = $page->html();
+    must(str_contains($html, 'Smoke Theme') && str_contains($html, 'Made by Smoke Maker'), 'the theme and its maker are missing');
+    must(str_contains($html, 'https://example.com/shot.png'), 'the screenshot is missing');
+    must(! str_contains($html, 'Smoke Plugin'), 'a plugin shows on the Themes tab');
+    must(str_contains($page->set('type', 'plugin')->html(), 'Smoke Plugin'), 'the Plugins tab does not show the plugin');
+    must(str_contains($page->set('type', 'theme')->set('search', 'nothing like this')->html(), 'Nothing found'), 'an empty search does not say so');
+    must(str_contains($page->set('search', '')->mountAction('view', ['slug' => 'smoke-theme'])->html(), 'MIT'), 'the details do not show the license');
 });
 
 step('installing refuses a download that is not on the Hub', function () use ($admin) {
