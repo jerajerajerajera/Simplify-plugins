@@ -1,0 +1,16 @@
+{
+  "id": "simplify-plugins",
+  "name": "Simplify Plugins",
+  "author": "jera",
+  "version": "1.0.0",
+  "description": "Browse the themes, plugins and languages on the Pelican Hub, with their makers up front, and install them from the Hub.",
+  "category": "plugin",
+  "namespace": "Simplify\\Plugins",
+  "class": "SimplifyPluginsPlugin",
+  "panels": [
+    "admin"
+  ],
+  "panel_version": "^1.0.0-beta38",
+  "api_version": 1,
+  "update_url": "https://hub.pelican.dev/plugins/simplify-plugins/update.json"
+}
