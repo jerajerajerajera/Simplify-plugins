@@ -3,5 +3,6 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 find src tests -name '*.php' -print0 | xargs -0 -n1 php -l >/dev/null
+php tests/catalog.php
 php tests/lang.php
 python3 tests/hub-check.py
