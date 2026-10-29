@@ -2,6 +2,9 @@
 
 # Simplify Plugins
 
+> **Discontinued.** This add-on is no longer developed and this repository is archived. Pelican's own Plugins page
+> and the [Pelican Hub](https://hub.pelican.dev) cover what it did. The code stays here for reference.
+
 A [Pelican](https://pelican.dev) plugin that shows the themes, plugins and languages on the
 [Pelican Hub](https://hub.pelican.dev) inside your panel, with their makers up front, and installs them from the Hub.
 
